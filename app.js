@@ -1,11 +1,13 @@
 import express from "express";
-import { startDB } from "./config/db.js";
+import { startDB, sequelize } from "./src/config/database.js";
+import { assistantModel } from "./src/models/asistentemodel.js";
+import { familiarmodel } from "./src/models/familiarmodel.js";
 
 const app = express();
 const PORT = 3000;
 
 //para que entienda el formato json
-app.use(express.json());
+app.use(express.json());ubgrebigubur
 
 
 app.listen(PORT, async () => {
