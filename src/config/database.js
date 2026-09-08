@@ -1,7 +1,11 @@
-export const sequelize = new Sequelize("tasks_users_db", "root", "", {
+export const sequelize = new Sequelize("asistencia_sanitaria_db", "root", "", {
     host: "localhost",
     dialect: "mysql",
 });
+
+// Definición de la relación (Un Familiar se vincula con un Asistente)
+const paciente = pacienteModel(sequelize);
+const asistente = asistenteModel(sequelize);
 
 export const startDB = async () => {
     try {

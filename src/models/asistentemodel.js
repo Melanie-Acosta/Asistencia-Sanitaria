@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../config/database.js";
 
-export const assistantModel = sequelize.define("User", {
+export const AsistenteModel = sequelize.define("asistente", {
     name: {
     type: DataTypes.STRING(100),
     allowNull: false,
@@ -15,16 +15,24 @@ export const assistantModel = sequelize.define("User", {
     type: DataTypes.STRING(100),
     allowNull: false,
     },
-    person_id: {
+    asistente_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: "assistants",
+            model: "assistentes",
             key: "id",
         }
     }
 },);
 
-//sistantModel.belongsTo(PersonModel, { foreignKey: "person_id", as:"owner" });
+// Un Asistente atiende a varios Pacientes
+Asistente.hasMany(Paciente, { 
+    foreignKey: 'asistenteId', 
+    as: 'pacientes' 
+});
+Paciente.belongsTo(Asistente, { 
+    foreignKey: 'asistenteId', 
+    as: 'asistente' 
+});
 
-//rsonModel.hasOne(assistantModel, { foreignKey: "person_id", as: "user"});
+export default AsistenteModel;

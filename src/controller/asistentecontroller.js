@@ -1,6 +1,6 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../config/database.js";
-import { PersonModel } from "./person.model.js";
+import { assistantModel } from "./models/asistentemodel.js";
 
 export const UserModel = sequelize.define("User", {
     name: {

@@ -1,1 +1,0 @@
-export const familiarModel = sequelize.define("Familiar", {});
